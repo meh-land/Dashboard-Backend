@@ -92,18 +92,18 @@ class dashboardController extends Controller
         $command = env('SHELL_CMD');
 
         // Extract the theta1 and theta2' parameters from the request
-        $Theta1 = $request['Theta1'];
-        $Theta2 = $request['Theta2'];
+        $Prismatic = $request['Prismatic'];
+        $Revolute = $request['Revolute'];
 
         // Ensure the script path and arguments are safely escaped for the shell command
         $ScriptPath = escapeshellarg($scriptPath);
-        $theta1 = escapeshellarg($Theta1);
-        $theta2 = escapeshellarg($Theta2);
+        $P = escapeshellarg($Prismatic);
+        $R = escapeshellarg($Revolute);
 
         // Construct the command
         $command = str_replace('$ScriptPath', $scriptPath, $command);
-        $command = str_replace('$a', $theta1, $command);
-        $command = str_replace('$b', $theta2, $command);
+        $command = str_replace('$a', $P, $command);
+        $command = str_replace('$b', $R, $command);
         $command = str_replace('$c', "", $command);
         
         // Execute the command
