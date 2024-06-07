@@ -21,3 +21,5 @@ Route::post('velocity_test',  [dashboardController::class, 'velocity_test']);
 Route::post('ARM_test',  [dashboardController::class, 'ARM_test']);
 Route::post('PID_test',  [dashboardController::class, 'PID_test']);
 Route::get('Get_IP',  [dashboardController::class, 'Get_IP']);
+Route::post('assignTask',  [dashboardController::class, 'AssignTask']);
+

@@ -137,4 +137,13 @@ class dashboardController extends Controller
         $result = shell_exec($command);
         return $result;
     }
+
+    public function AssignTask(Request $request){
+         $scriptPath = env('Assign_Task_Script');
+
+         $command = "start_task".$request->taskName;
+
+        $result = shell_exec($command);
+        return $result;
+    }
 }
