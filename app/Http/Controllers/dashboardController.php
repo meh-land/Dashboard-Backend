@@ -139,9 +139,9 @@ class dashboardController extends Controller
     }
 
     public function AssignTask(Request $request){
-         $scriptPath = env('Assign_Task_Script');
+        $scriptPath = env('Assign_Task_Script');
 
-         $command = "start_task".$request->taskName;
+        $command = "start_task".$request->taskName;
 
         $result = shell_exec($command);
         return $result;
