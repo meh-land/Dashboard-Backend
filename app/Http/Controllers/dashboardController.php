@@ -154,6 +154,6 @@ class dashboardController extends Controller
         $sync = shell_exec($sync_cmd);
         $result = shell_exec($command);
 
-        return $command;
+        return $result;
     }
 }
