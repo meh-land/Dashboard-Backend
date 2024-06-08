@@ -144,10 +144,8 @@ class dashboardController extends Controller
 
         $Task = $request['taskname'];
 
-        $task =  escapeshellarg($Task);
-
         $command = str_replace('$ScriptPath', $scriptPath, $command);
-        $command = str_replace('$a', $task , $command);
+        $command = str_replace('$a', $Task , $command);
         $command = str_replace('$b', "b" , $command);
         $command = str_replace('$c', "c" , $command);
 
@@ -156,6 +154,6 @@ class dashboardController extends Controller
         $sync = shell_exec($sync_cmd);
         $result = shell_exec($command);
 
-        return $result;
+        return $command;
     }
 }
