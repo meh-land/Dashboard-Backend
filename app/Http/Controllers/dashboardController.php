@@ -139,11 +139,21 @@ class dashboardController extends Controller
     }
 
     public function AssignTask(Request $request){
-        $scriptPath = env('Assign_Task_Script');
+        $scriptPath = env('TASK_SCRIPT');
+        $command = env('SHELL_CMD');
 
-        $command = "start_task".$request->taskName;
+        $task =  escapeshellarg($request->taskName);
 
+        $command = str_replace('$ScriptPath', $scriptPath, $command);
+        $command = str_replace('$a', $task , $command);
+        $command = str_replace('$b', "b" , $command);
+        $command = str_replace('$c', "c" , $command);
+
+        $sync_cmd = "sync_maps_tasks ".$request->taskName;
+
+        $sync = shell_exec($sync_cmd);
         $result = shell_exec($command);
+
         return $result;
     }
 }
