@@ -142,7 +142,9 @@ class dashboardController extends Controller
         $scriptPath = env('TASK_SCRIPT');
         $command = env('SHELL_CMD');
 
-        $task =  escapeshellarg($request->taskName);
+        $Task = $request['taskname'];
+
+        $task =  escapeshellarg($Task);
 
         $command = str_replace('$ScriptPath', $scriptPath, $command);
         $command = str_replace('$a', $task , $command);
