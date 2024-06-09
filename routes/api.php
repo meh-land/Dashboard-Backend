@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\LogController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,7 @@ Route::post('ARM_test',  [dashboardController::class, 'ARM_test']);
 Route::post('PID_test',  [dashboardController::class, 'PID_test']);
 Route::get('Get_IP',  [dashboardController::class, 'Get_IP']);
 Route::post('assignTask',  [dashboardController::class, 'AssignTask']);
+
+Route::get('/check-log', [LogController::class, 'checkLog']);
+
 
