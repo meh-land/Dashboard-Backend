@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\StatusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +26,7 @@ Route::get('Get_IP',  [dashboardController::class, 'Get_IP']);
 Route::post('assignTask',  [dashboardController::class, 'AssignTask']);
 
 Route::get('/check-log', [LogController::class, 'checkLog']);
+Route::get('/status', [StatusController::class, 'checkStaus']);
+
 
 
