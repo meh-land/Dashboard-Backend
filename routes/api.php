@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\MotorsController;
 use App\Http\Controllers\StatusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::post('assignTask',  [dashboardController::class, 'AssignTask']);
 
 Route::get('/check-log', [LogController::class, 'checkLog']);
 Route::get('/status', [StatusController::class, 'checkStaus']);
+Route::get('/velocities', [MotorsController::class, 'checkVelocities']);
 
 
 
